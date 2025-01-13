@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>My Portafolio</title>
+
+     <!-- prevent color flashing -->
+     <style>
+          html[data-theme="light"]{
+               background: #efefef;
+          }
+          html[data-theme="dark"]{
+               background: #0a0a0c;
+          }
+     </style>
+
+     <!-- javascript to prevent color flashing -->
+     <script>
+          (function () {
+          const storageKey = "theme";
+          function setTheme(darkMode) {
+               document.documentElement.setAttribute(
+                    "data-theme",
+                    darkMode ? "dark" : "light"
+               );
+          }
+          const mql = window.matchMedia("(prefers-color-scheme: dark)");
+          const storedTheme = localStorage.getItem(storageKey);
+          const darkMode = storedTheme ? JSON.parse(storedTheme) : mql.matches;
+          setTheme(darkMode);
+          localStorage.setItem(storageKey, darkMode);
+          })();
+     </script>
+     
+     <!-- fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+     
+     <!-- Odometer CDN -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js" integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.min.css" integrity="sha512-/k/mL9TQSZHAqtVqXJAiy5bt2w1P7gxdra0UlnFjVHF9a/LC2vxt7otx3BMcn79V/DZsPRwdw8tPlwbElMnIAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <!-- Swipper CDN -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+     <!-- GSAP CDN -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+     <!-- highlight CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+     <!-- Styles -->
+     <link rel="stylesheet" href="./css/main.css?v=1.0" />
+     <link rel="stylesheet" href="./css/index.css?v=1.0" />
+
+</head>
+
+<body>
+
+     <nav id="navbar" class="flex__center">
+          <div class="logo">
+               <i data-custom-icon="main"></i>
+          </div>
+          <div class="flex nav__routes">
+               <a href="#header" class="route active">Home</a>
+               <a href="#about" class="route">About</a>
+               <a href="#services" class="route">Services</a>
+               <a href="#projects" class="route">Projects</a>
+               <a href="#contact" class="route">contact</a>
+          </div>
+          <div class="flex__center">
+               <label class="theme__toggle">
+                    <input type="checkbox" id="theme-checkbox">
+                    <div class="icon__container">
+                        <i data-lucide="sun" class="sun"></i>
+                        <i data-lucide="moon" class="moon"></i>
+                    </div>
+                </label>                
+               <div class="icon__container menu__btn" id="menu__btn">
+                     <i data-lucide="menu"></i>
+               </div>
+
+          </div>
+     </nav>
+
+     <aside class="sidebar">
+          <div class="sidebar__wrapper">
+               <div class="flex__center top"></div>
+               <div class="logo">
+                    <i data-custom-icon="logo"></i>
+               </div>
+               <div class="icon__container" id="close-sidebar-btn">
+                    <i class="fas fa-times"></i>
+               </div>                
+               <div class="middle navlinks">
+                    <a href="#header" class="route active">Home</a>
+                    <a href="#about" class="route">About</a>
+                    <a href="#services" class="route">Services</a>
+                    <a href="#projects" class="route">Projects</a>
+                    <a href="#testimonials" class="route">Testimonials</a>
+                    <a href="#contact" class="route">contact</a>
+               </div>
+          </div>
+     </aside>
+
+      <section id="header" class="bg__secondary">
+          <div class="spotlight"></div>
+          <div class="container">
+               <div class="grid">
+                    <div class="me">
+                         <img src="./assets/me.png" alt="">
+                    </div>
+                    <div class="user__info">
+                         <h2 class="sub__title"> Hi 👋, I'm Miguel Camo</h2>
+                         <h1 class="title">Software Engineering Student</h1>
+                         <p class="description"> 
+                              I develop software solutions for desktop and web using Java, C#, 
+                              and PHP, focusing on solid system design, architecture, and testing, 
+                              ensuring high-quality results from concept to deployment.
+                         </p>
+                         <div class="flex buttons">
+                              <div class="flex social__handles">
+                                   <a href="https://github.com/MigCamo" target="_blank" class="icon__container handle">
+                                        <i class="fa-brands fa-github"></i>
+                                   </a>
+                                   <a href="https://www.linkedin.com/in/miguel-%C3%A1ngel-camo-rinc%C3%B3n-722b492a1/" target="_blank" class="icon__container handle">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                   </a>
+                                   <a href="https://www.instagram.com/migguelcamo/profile/" target="_blank" class="icon__container handle">
+                                        <i class="fa-brands fa-instagram"></i>
+                                   </a>
+                                   <a href="https://www.facebook.com/share/ks1rqVnSAnzvTaRe/" target="_blank" class="icon__container handle">
+                                        <i class="fa-brands fa-facebook"></i>
+                                   </a>
+                              </div>
+                              <a href="#contact" class="btn btn__primary"> Contact Me </a>
+                         </div>
+                    </div>
+
+                    <div class="points">
+                         <div class="spotlight"></div>
+
+                         <div class="point">
+                              <div class="flex">
+                                   <div class="odometer sub__title" id="experience"></div>
+                                   <h3 class="sub__title">+</h3>
+                              </div>
+                              <p class="text__muted">Years of Experience</p>
+                         </div>
+
+                         <div class="point">
+                              <div class="flex">
+                                   <div class="odometer sub__title" id="project"></div>
+                                   <h3 class="sub__title">+</h3>
+                              </div>
+                              <p class="text__muted">Completed Projects</p>
+                         </div>
+
+                         <div class="point">
+                              <div class="flex">
+                                   <div class="odometer sub__title" id="awards"></div>
+                                   <h3 class="sub__title">🏆+</h3>
+                              </div>
+                              <p class="text__muted">Awards</p>
+                         </div>
+
+                         <div class="point">
+                              <div class="flex">
+                                   <div class="odometer sub__title" id="clients"></div>
+                                   <h3 class="sub__title">+</h3>
+                              </div>
+                              <p class="text__muted">Clients Worlwide</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+      </section>
+
+
+     <section id="about">
+          <div class="container grid">
+               <div class="box self__start">
+                    <div class="spotlight"></div>
+                    <div class="cluster">
+                         <div class="flex user">
+                              <div class="profile">
+                                   <img src="./assets/me.png" alt="">
+                              </div>
+                              <div class="details">
+                                   <h4>Miguel Angel Camo Rincón</h4>
+                                   <p class="text__muted">Enginer Software Student</p>
+                              </div>
+                         </div>
+                         <h2 class="sub__title">
+                              <span class="primary">Passionate</span> 
+                              Developer and Lifelong Learner
+                         </h2>
+                         <p class="description">
+                              I adapt to different time zones to make sure communication is smooth, no matter where you're located.
+                         </p>
+                    </div>
+               </div>
+
+                <div class="col-2 box">
+                    <div class="spotlight"></div>
+                    <div class="flex row cluster">
+                         <div class="code__block">
+                              <div class="flex__center dot__container">
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                                   <span class="dot"></span>
+                              </div>
+                              <pre>
+<code>
+const developer = {
+     firstName = "Miguel",
+     lastNAme = "Camo",
+     status: "Tired",
+     hobby:repeat = () => {
+          //eat();
+          //sleep();
+          //code();
+          //repeat();
+     }
+}
+</code>
+</pre>
+                         </div>
+                         <div class="my__drive">
+                              <h2 class="sub__title"> 
+                                   what <span class="primary">Drives Me</span>
+                              </h2>
+                              <p class="description">
+                                   I'm a Software Engineering student 🧑🏻‍💻 at Universidad Veracruzana, 
+                                   proficient in both front-end and back-end development. 
+                                   I'm passionate about coding on web platforms 💻, bringing ideas 
+                                   to life digitally. Beyond the screen, I thrive on the challenges 
+                                   of the gym 🏋🏽 and am a dedicated soccer enthusiast ⚽. 
+                                   Always seeking new opportunities to grow in the digital realm.
+                              </p>
+                         </div>
+                    </div>
+                    <i data-custom-icon="grid-wire-frame" class="kit grid__wireframe"></i>
+                </div>
+
+               <div class="col-2 box">
+                    <div class="cluster">
+                         <div class="column">
+                              <h2 class="sub__title">
+                                   My <span class="primary">Tech Stack</span>
+                              </h2>
+                              <p class="description">Always Evolving My Tech Stack</p>
+                              <a href="https://skillicons.dev">
+                                   <img src="https://skillicons.dev/icons?i=laravel,php,cs,javascript,java,nodejs,html,css" />
+                              </a>
+                              <a href="https://skillicons.dev">
+                                   <img src="https://skillicons.dev/icons?i=git,docker,dotnet,azure,vite,vue,selenium,mongodb" />
+                              </a>
+                         </div>
+                    </div>
+                    <i data-custom-icon="grid" class="kit grid__box"></i>
+                    <i data-custom-icon="card-ui" class="kit card__ui"></i>
+               </div>
+
+               <div class="box flex__center last__box">
+                    <div class="cluster">
+                         <h2 class="text__white sub__title2">
+                              I'm Committed to Collaboration and Clear Communication
+                         </h2>
+                         <div class="flex__center btn__wrapper">
+                              <a href="#contact" class="btn">Let Collaborate</a>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <section id="services" class="bg__secondary">
+          <div class="container">
+               <div class="section__header">
+                    <h2 class="sub__title">
+                         My <span class="primary">Services</span>
+                    </h2>
+                    <p class="description">
+                         With a solid foundation in software engineering and hands-on experience in both 
+                         desktop and web development, I offer a range of services aimed at delivering high-quality,
+                         scalable solutions. From initial requirements gathering to deployment, I ensure every project
+                         is built with precision and aligned with your business goals.
+                    </p>
+               </div>
+
+               <div class="services">
+                    <div class="service">
+                         <div class="flex__center circle">
+                              <div class="spotlight"></div>
+                              <div class="icon__container">
+                                   <i data-lucide="laptop-minimal"></i>
+                              </div>
+                         </div>
+                         <h3 class="name">Desktop Application Development</h3>
+                         <p class="text__muted description">
+                              I create robust desktop applications using Java, C, and C#, focusing
+                              on performance, usability, and maintainability to provide effective 
+                              solutions tailored to your specific needs.
+                         </p>
+                         <div class="flex__center">
+                              <a href="#contact" class="btn">
+                                   Let Talk <i data-lucide="arrow-right"></i>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="service">
+                         <div class="flex__center circle">
+                              <div class="spotlight"></div>
+                              <div class="icon__container">
+                                   <i data-lucide="code"></i>
+                              </div>
+                         </div>
+                         <h3 class="name">Custom Web Development</h3>
+                         <p class="text__muted description">
+                              Using languages such as PHP, C#, JavaScript, and Node.js, I build dynamic, 
+                              responsive web applications with frameworks like Laravel and .NET Core, 
+                              ensuring smooth, modern user experiences. With a strong eye for design, I build clean, 
+                              responsive interfaces using CSS and Tailwind, ensuring that your web platform is
+                              not only functional but also visually appealing.
+                         </p>
+                         <div class="flex__center">
+                              <a href="#contact" class="btn">
+                                   Let Talk <i data-lucide="arrow-right"></i>
+                              </a>
+                         </div>
+                    </div>
+
+                    <div class="service">
+                         <div class="flex__center circle">
+                              <div class="spotlight"></div>
+                              <div class="icon__container">
+                                   <i data-lucide="pencil-ruler"></i>
+                              </div>
+                         </div>
+                         <h3 class="name">Software Architecture and System Design</h3>
+                         <p class="text__muted description">
+                              I specialize in defining system structures, class diagrams, 
+                              and proposing design and architectural patterns, ensuring 
+                              scalable, maintainable, and high-performance software solutions 
+                              using methodologies like ICONIX.
+                         </p>
+                         <div class="flex__center">
+                              <a href="#contact" class="btn">
+                                   Let Talk <i data-lucide="arrow-right"></i>
+                              </a>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+     <section id="projects">
+          <div class="container">
+               <div class="section__header">
+                    <h2 class="sub__title">My Recent Projects</h2>
+                    <p class="description">
+                         Explore my latest work, blending creativity and code for functional, responsive websites with clean design and seamless user experiences.
+                    </p>
+               </div>
+
+               <div class="projects">
+
+                    <div class="project">
+                         <a href="https://github.com/MigCamo/MonopolyClient.git" target="_blank" class="picture">
+                              <img src="./assets/project1.png" alt="">
+                         </a>
+                         <div class="flex details">
+                              <h3 class="line__clamp__1">
+                                   Monopoly Game Desktop
+                              </h3>
+                              <p class="text__muted description line__clamp__4">
+                                   A desktop version of the classic Monopoly game, built with C# and Entity Framework. 
+                                   It features property management, player interactions, and transactions, all powered 
+                                   by a robust database for a smooth and engaging gameplay experience!
+                              </p>
+                              <div class="flex bottom">
+                                   <a href="https://github.com/MigCamo/MonopolyClient.git" target="_blank" class="flex__center btn">
+                                        <i data-lucide="square-arrow-out-up-right"></i> View Demo
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+
+
+                    <div class="project">
+                         <a href="https://github.com/GustavoYuss/TeamHub.git" target="_blank" class="picture">
+                              <img src="./assets/project3.png" alt="">
+                         </a>
+                         <div class="flex details">
+                              <h3 class="line__clamp__1">
+                                   TeamsHub
+                              </h3>
+                              <p class="text__muted description line__clamp__4">
+                                   A project management system developed with Node.js, JavaScript, C#, Entity Core, and RabbitMQ. 
+                                   It facilitates team collaboration, task management, and communication, ensuring efficient project 
+                                   workflows through a scalable architecture and robust message queuing for real-time updates.
+                              </p>
+                              <div class="flex bottom">
+                                   <a href="https://github.com/GustavoYuss/TeamHub.git" target="_blank" class="flex__center btn">
+                                        <i data-lucide="square-arrow-out-up-right"></i> View Demo
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="project">
+                         <a href="https://github.com/GustavoYuss/SGERYPG.git" target="_blank" class="picture">
+                              <img src="./assets/project2.png" alt="">
+                         </a>
+                         <div class="flex details">
+                              <h3 class="line__clamp__1">
+                                   Project Management System for Guided and Receptional Experience
+                              </h3>
+                              <p class="text__muted description line__clamp__4">
+                                   A project management system developed in Java, designed to streamline project 
+                                   guidance and track receptional progress. It supports task organization, team coordination,
+                                    and progress tracking, providing a structured and efficient environment for managing guided projects.
+                              </p>
+                              <div class="flex bottom">
+                                   <a href="https://github.com/GustavoYuss/SGERYPG.git" target="_blank" class="flex__center btn">
+                                        <i data-lucide="square-arrow-out-up-right"></i> View Demo
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="project">
+                         <a href="https://github.com/LuisAlonsoAndradeLopez/ItaliaPizza.git" target="_blank" class="picture">
+                              <img src="./assets/project4.png" alt="">
+                         </a>
+                         <div class="flex details">
+                              <h3 class="line__clamp__1">
+                                   Italian Pizza
+                              </h3>
+                              <p class="text__muted description line__clamp__4">
+                                   A pizzeria management system built with C# and Entity Framework, designed to handle sales, 
+                                   staff management, cash flow, and inventory. It streamlines operations by providing an efficient
+                                   and user-friendly interface for managing day-to-day activities in the pizzeria business.
+                              </p>
+                              <div class="flex bottom">
+                                   <a href="https://github.com/LuisAlonsoAndradeLopez/ItaliaPizza.git" target="_blank" class="flex__center btn">
+                                        <i data-lucide="square-arrow-out-up-right"></i> View Demo
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="project">
+                         <a href="#" target="_blank" class="picture">
+                              <img src="./assets/project5.png" alt="">
+                         </a>
+                         <div class="flex details">
+                              <h3 class="line__clamp__1">
+                                   Vacancy Management System
+                              </h3>
+                              <p class="text__muted description line__clamp__4">
+                                   A system developed using PHP, Vue.js, Laravel, and Fortify, designed to manage job vacancies, 
+                                   applications, and candidate tracking. It offers a secure, efficient platform for recruiters 
+                                   to post and manage job listings, while streamlining the application process for candidates.
+                              </p>
+                              <div class="flex bottom">
+                                   <a href="#" target="_blank" class="flex__center btn">
+                                        <i data-lucide="square-arrow-out-up-right"></i> View Demo
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+
+     </section>
+
+     <section id="contact">
+          <div class="container">
+               <div class="left__column">
+                    <div class="box">
+                         <div class="cluster">
+                              <div class="spotlight"></div>
+                              <h2 class="sub__title">
+                                   Let’s <span class="primary">create something</span> amazing together!
+                              </h2>
+                              <p class="description">
+                                   Feel free to reach out for projects, collaborations, or web development inquiries via the form or email!
+                              </p>
+                         </div>
+                    </div>
+                    <div class="box">
+                         <div class="cluster">
+                              <div class="flex option">
+                                   <div class="icon__container">
+                                        <i data-lucide="at-sign"></i>
+                                   </div>
+                                   <div class="details">
+                                        <h3 class="name">Email</h3>
+                                        <p class="text__muted value">zS21013878@estudiantes.uv.mx</p>
+                                   </div>
+                              </div>
+
+
+                              <div class="flex option">
+                                   <div class="icon__container">
+                                        <i data-lucide="phone"></i>
+                                   </div>
+                                   <div class="details">
+                                        <h3 class="name">Teléfono</h3>
+                                        <p class="text__muted value">+52 2731010078</p>
+                                   </div>
+                              </div>
+
+
+
+                              <div class="flex option">
+                                   <div class="icon__container">
+                                        <i data-lucide="map-pin"></i>
+                                   </div>
+                                   <div class="details">
+                                        <h3 class="name">Dirección</h3>
+                                        <p class="text__muted value">Xalapa, Veracruz. México</p>
+                                   </div>
+                              </div>
+
+                         </div>
+                    </div>
+               </div>
+               <form action="https://formspree.io/f/xdkoelra" method="POST" class="contact__form">
+                    <div class="spotlight"></div>
+                    <h2 class="sub__title">
+                         Let’s <span class="primary">create something</span> amazing together!
+                    </h2>
+                    <div class="row">
+                         <input type="text" placeholder="First Name" name="firstName" class="control">
+                         <input type="text" placeholder="Last Name" name="lastName" class="control">
+                    </div>
+                    <div class="row">
+                         <input type="email" placeholder="Email address" name="email" class="control">
+                         <input type="tel" placeholder="Phone number" name="phone" class="control">
+                    </div>
+                    <textarea name="message" placeholder="Message" class="control"></textarea>
+                    <button class="btn btn__primary submit__btn">
+                         Send Now
+                    </button>
+               </form>
+          </div>
+     </section>
+
+     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <script src="main.js"></script>
+     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+</body>
+</html>
+
