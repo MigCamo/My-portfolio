@@ -2,11 +2,11 @@
 
 Portafolio personal en español centrado en ingeniería de software, desarrollo full stack, arquitectura y calidad. HTML, CSS y JavaScript nativos; no requiere instalación ni compilación.
 
-La identidad visual se inspira en un entorno de trabajo GNU/Linux: explorador lateral, pestañas de archivos, monograma ASCII, paleta woodland, tipografía monoespaciada y barra de estado. Los proyectos se presentan como un directorio documentado, con capturas y decisiones técnicas.
+La portada sigue una composición tipo neofetch: retrato ASCII generado desde la foto de Miguel, etiquetas ámbar, valores azules y separadores de terminal. La referencia visual solicitada es el [perfil de Andrew6rant](https://github.com/Andrew6rant/Andrew6rant); el retrato, los datos y la implementación son propios. Las secciones se recorren mediante enlaces o la terminal del portafolio.
 
 ## Shell del portafolio
 
-La terminal navega por el contenido del sitio. Soporta `help`, `whoami`, `ls`, `pwd`, `cd proyectos`, `cd experiencia`, `cd stack`, `cd contacto`, `cat stack.conf`, `cat sobre_mí.md`, `cv`, `theme` y `clear`.
+La terminal navega por el contenido del sitio. Soporta `help`, `whoami`, `neofetch`, `ls`, `pwd`, `cd proyectos`, `cd experiencia`, `cd stack`, `cd contacto`, `cat stack.conf`, `cat sobre_mí.md`, `cv`, `theme` y `clear`.
 
 - `/` enfoca el campo desde fuera de un control editable; `Escape` libera el foco.
 - `Tab` completa una coincidencia única y vuelve a su navegación habitual cuando el texto ya coincide.
@@ -33,6 +33,8 @@ Abrir `http://127.0.0.1:4173`. El archivo de entrada es `index.html`, con minús
 - `theme.js`: selección temprana del tema, con almacenamiento opcional.
 - `main.js`: intérprete del portafolio, menú, filtros, seguimiento de navegación y copia del correo.
 - `assets/images/`: imágenes WebP utilizadas por el sitio. Los originales se conservan en `assets/`.
+- `assets/portrait-ascii.txt`: retrato en texto generado a partir de `assets/me.png`, incrustado en un elemento `pre` de la portada.
+- `scripts/build_ascii.py`: regenera el retrato y actualiza su bloque HTML; requiere Python y Pillow. Ejecutar `python scripts/build_ascii.py`. El sitio no ejecuta esta conversión ni necesita Pillow al navegar.
 - `assets/documents/miguel-camo-cv.pdf`: CV actualizado descargable.
 - `scripts/build_cv.py`: fuente del CV; requiere Python y `reportlab`. Ejecutar `python scripts/build_cv.py` para regenerarlo. No es necesario para servir la web.
 
@@ -52,7 +54,7 @@ Este rediseño conserva la tecnología del repositorio. Angular 20 con component
 ## Rendimiento y seguridad
 
 - Se retiraron GSAP, Swiper, Odometer, highlight.js y las dependencias de iconos de CDN.
-- Las seis imágenes utilizadas pasan de aproximadamente 3.17 MB en sus originales a 0.29 MB en WebP, una reducción cercana al 91%. Se especifican dimensiones y se usa carga diferida en las capturas y el retrato de la sección de perfil. La portada se compone con texto y CSS.
+- Las imágenes WebP suman aproximadamente 0.29 MB frente a 3.17 MB de sus originales. Se especifican dimensiones y se usa carga diferida en las capturas y el retrato de la sección de perfil. El retrato ASCII de portada se sirve como texto estático, sin canvas, fuentes remotas ni procesamiento de imagen en el navegador.
 - Tipografía del sistema, iconos SVG locales y un observador de intersección en lugar de listeners de scroll.
 - No se insertan cadenas mediante `innerHTML`, no hay secretos ni formularios simulados. Los enlaces externos usan `noopener noreferrer`.
 - Se respetan preferencias de movimiento reducido y se incluyen foco visible, salto al contenido, estados de los controles y mensajes accesibles.
@@ -78,4 +80,4 @@ Los promedios por periodo se distinguen del promedio global de carrera (9.0, seg
 
 Comprobaciones de sintaxis con `node --check main.js` y `node --check theme.js`; integridad de rutas y anclas locales; revisión de escritorio y de anchos móviles/tablet; pruebas manuales de filtros, tema, menú y detalles. Se verifican ayuda, perfil, navegación, historial, autocompletado, limpieza del shell y representación literal de texto con etiquetas. El CV existente se conserva.
 
-No se ha configurado un hosting nuevo ni se han enviado cambios al remoto. Para publicar, servir los archivos del repositorio conservando `index.html` y los directorios `css/` y `assets/`.
+Para desplegar el sitio, servir los archivos del repositorio conservando `index.html`, `main.js`, `theme.js` y los directorios `css/` y `assets/`. La configuración del hosting se administra por separado del código fuente.

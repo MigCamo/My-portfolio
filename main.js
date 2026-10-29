@@ -9,8 +9,8 @@ function syncThemeLabel() {
     `Activar tema ${light ? "oscuro" : "claro"}`,
   );
   document.querySelector('meta[name="theme-color"]').content = light
-    ? "#eeeee5"
-    : "#10120f";
+    ? "#f6f7f9"
+    : "#0d1117";
 }
 function toggleTheme() {
   const theme =
@@ -45,7 +45,7 @@ navigation.addEventListener("click", (event) => {
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".site-header")) closeMenu();
 });
-window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+window.matchMedia("(min-width: 761px)").addEventListener("change", (event) => {
   if (event.matches) closeMenu();
 });
 
@@ -116,6 +116,7 @@ const destinations = Object.freeze({
 const completions = [
   "help",
   "whoami",
+  "neofetch",
   "ls",
   "pwd",
   "cv",
@@ -170,7 +171,7 @@ function runCommand(raw) {
   const profile =
     "Miguel Ángel Camo Rincón\nIngeniero en software · Universidad Veracruzana\nFull stack: frontend, backend e integración de servicios.\nAhora: frontend, arquitectura y QA en Equipo ARIES.\nXalapa, Veracruz, México.";
   const output = {
-    help: "Comandos disponibles:\n  whoami           Conocer mi perfil\n  ls               Listar secciones\n  cd proyectos     Ir a una sección (experiencia, stack, contacto...)\n  cat stack.conf   Consultar tecnologías\n  pwd              Mostrar ubicación\n  cv               Descargar mi currículum\n  theme            Alternar tema\n  clear            Limpiar la terminal",
+    help: "Comandos disponibles:\n  whoami           Conocer mi perfil\n  neofetch         Volver a la ficha del perfil\n  ls               Listar secciones\n  cd proyectos     Ir a una sección (experiencia, stack, contacto...)\n  cat stack.conf   Consultar tecnologías\n  pwd              Mostrar ubicación\n  cv               Descargar mi currículum\n  theme            Alternar tema\n  clear            Limpiar la terminal",
     whoami: profile,
     ls: "sobre_mí.md     experiencia.log     proyectos/\nstack.conf      contacto.sh         curriculum.pdf\n\nPrueba: cd proyectos",
     pwd: "~/portfolio",
@@ -180,7 +181,10 @@ function runCommand(raw) {
   };
   if (Object.hasOwn(output, normalized))
     appendOutput(command, output[normalized]);
-  else if (normalized === "theme") {
+  else if (normalized === "neofetch" || normalized === "neofetch --profile") {
+    appendOutput(command, profile);
+    navigateToDirectory("inicio");
+  } else if (normalized === "theme") {
     toggleTheme();
     appendOutput(
       command,
@@ -288,8 +292,6 @@ if ("IntersectionObserver" in window) {
       navigation.querySelectorAll('a[href^="#"]').forEach((link) => {
         if (link.hash === `#${visible.target.id}`) {
           link.setAttribute("aria-current", "location");
-          document.querySelector("#current-file").textContent =
-            `~/${link.dataset.short}`;
         } else link.removeAttribute("aria-current");
       });
     },

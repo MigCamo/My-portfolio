@@ -1,42 +1,41 @@
-/* Paleta woodland: fondo cálido, texto legible y acentos de terminal. */
+/* Ficha de terminal: etiquetas ámbar, valores azules y contraste legible. */
 :root {
   color-scheme: dark;
-  --bg: #10120f;
-  --surface: #151813;
-  --surface-raised: #1d211a;
-  --text: #dce0d4;
-  --muted: #a0a793;
-  --faint: #919b83;
-  --line: #30362a;
-  --accent: #b6d685;
-  --accent-strong: #c9e7a0;
-  --amber: #d9b078;
-  --blue: #a1b9b3;
-  --button-text: #10120f;
-  --lime: #b6d685;
-  --header: #141710;
-  --max-width: 1120px;
-  --sidebar: 202px;
-  --topbar: 52px;
-  --mono:
-    "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-raised: #1c232b;
+  --text: #d4d9e0;
+  --muted: #a8b0bb;
+  --faint: #8b949e;
+  --line: #303844;
+  --dots: #56616f;
+  --accent: #eeb880;
+  --accent-strong: #ffd5a5;
+  --amber: #eeb880;
+  --blue: #9ccdf2;
+  --button-text: #10151d;
+  --lime: #b5d68b;
+  --header: #0d1117;
+  --max-width: 1050px;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 html[data-theme="light"] {
   color-scheme: light;
-  --bg: #eeeee5;
-  --surface: #e5e7db;
-  --surface-raised: #daddce;
-  --text: #293022;
-  --muted: #59624e;
-  --faint: #5e684f;
-  --line: #c6ccba;
-  --accent: #46691e;
-  --accent-strong: #365614;
-  --amber: #80551b;
-  --blue: #386860;
-  --button-text: #f4f6e9;
-  --lime: #46691e;
-  --header: #e5e7da;
+  --bg: #f6f7f9;
+  --surface: #fff;
+  --surface-raised: #edf0f4;
+  --text: #27313b;
+  --muted: #536171;
+  --faint: #637080;
+  --line: #d0d7df;
+  --dots: #b0bac6;
+  --accent: #98510b;
+  --accent-strong: #7d3d00;
+  --amber: #98510b;
+  --blue: #215b88;
+  --button-text: #fff;
+  --lime: #44762c;
+  --header: #f6f7f9;
 }
 *,
 *::before,
@@ -55,7 +54,7 @@ body {
   font-size: 13px;
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 30px;
+  padding-bottom: 0;
 }
 h1,
 h2,

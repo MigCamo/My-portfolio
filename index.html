@@ -7,7 +7,7 @@
       name="description"
       content="Miguel Camo, ingeniero en software y desarrollador full stack en Xalapa. Frontend, backend, arquitectura de software y pruebas automatizadas."
     />
-    <meta name="theme-color" content="#10120f" />
+    <meta name="theme-color" content="#0d1117" />
     <meta name="color-scheme" content="dark light" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta
@@ -69,17 +69,24 @@
       </symbol>
     </svg>
     <header class="site-header">
-      <div class="nav-wrap">
+      <div class="nav-wrap container">
         <a class="brand" href="#inicio" aria-label="Miguel Camo, inicio"
-          ><span class="brand-mark" aria-hidden="true">[~]</span
           ><span
-            >mcamo<span class="host">@portfolio</span
-            ><span class="brand-role"> /home/miguel</span></span
+            >miguel<span class="host">@camo</span
+            ><span class="brand-role">:~$</span></span
           ></a
         >
-        <span class="session-label"
-          ><span class="status-dot"></span> sesión personal</span
+        <nav
+          class="navigation"
+          id="navigation"
+          aria-label="Secciones del portafolio"
         >
+          <a href="#inicio" data-short="perfil">perfil</a
+          ><a href="#experiencia" data-short="experiencia.log">experiencia</a
+          ><a href="#proyectos" data-short="proyectos/">proyectos</a
+          ><a href="#stack" data-short="stack.conf">stack</a
+          ><a href="#contacto" data-short="contacto.sh">contacto</a>
+        </nav>
         <div class="nav-actions">
           <button
             class="icon-button theme-toggle"
@@ -90,10 +97,6 @@
             ><svg class="icon moon" aria-hidden="true">
               <use href="#moon" />
             </svg></button
-          ><a class="nav-contact" href="#contacto"
-            >:contacto
-            <svg class="icon" aria-hidden="true">
-              <use href="#arrow-up-right" /></svg></a
           ><button
             class="icon-button menu-toggle"
             type="button"
@@ -105,204 +108,237 @@
           </button>
         </div>
       </div>
-      <nav
-        class="navigation"
-        id="navigation"
-        aria-label="Explorador del portafolio"
-      >
-        <span class="explorer-label"
-          >EXPLORER <span aria-hidden="true">···</span></span
-        >
-        <span class="explorer-root"
-          ><span aria-hidden="true">⌄</span> ~/portfolio</span
-        >
-        <a href="#inicio" data-short="home"
-          ><span class="file-type">~</span> inicio</a
-        >
-        <a href="#sobre-mi" data-short="about.md"
-          ><span class="file-type">md</span> sobre_mí.md</a
-        >
-        <a href="#experiencia" data-short="experience.log"
-          ><span class="file-type">↳</span> experiencia.log</a
-        >
-        <a href="#proyectos" data-short="projects/"
-          ><span class="file-type">▤</span> proyectos/</a
-        >
-        <a href="#stack" data-short="stack.conf"
-          ><span class="file-type">⚙</span> stack.conf</a
-        >
-        <a href="#contacto" data-short="contact.sh"
-          ><span class="file-type">$</span> contacto.sh</a
-        >
-        <div class="sidebar-note">
-          <span class="sidebar-comment">// en qué trabajo</span>
-          <p>Interfaces.<br />Servicios.<br />Sistemas que evolucionan.</p>
-          <a
-            href="https://github.com/MigCamo"
-            target="_blank"
-            rel="noopener noreferrer"
-            >↗ github/MigCamo</a
-          ><a href="./assets/documents/miguel-camo-cv.pdf" download
-            >↓ curriculum.pdf</a
-          >
-        </div>
-        <span class="sidebar-bottom"
-          ><span class="status-dot"></span> Full stack developer</span
-        >
-      </nav>
     </header>
     <main id="contenido">
       <section class="hero container" id="inicio" aria-labelledby="hero-title">
-        <div class="workspace-tabs" aria-label="Accesos a documentos">
-          <a class="workspace-tab selected" href="#inicio"
-            ><span>~</span> inicio
-            <span class="tab-close" aria-hidden="true">×</span></a
-          ><a class="workspace-tab" href="#sobre-mi"
-            ><span>md</span> sobre_mí.md</a
-          ><span class="workspace-path">~/portfolio</span>
-        </div>
-        <div class="hero-content">
-          <div class="hero-copy">
-            <p class="shell-line">
-              <span class="prompt-user">mcamo@portfolio</span
-              ><span class="prompt-path">:~</span
-              ><span class="prompt-sign">$</span> whoami
-            </p>
-            <p class="hero-kicker">INGENIERO EN SOFTWARE / XALAPA, MX</p>
-            <h1 id="hero-title">
-              miguel<br /><span
-                >camo<span class="cursor" aria-hidden="true">_</span></span
+        <div class="fetch-window">
+          <div class="fetch-window-title">
+            <span class="window-dots" aria-hidden="true"
+              ><i></i><i></i><i></i></span
+            ><span>miguel@camo: ~</span
+            ><span class="window-session">portfolio / shell</span>
+          </div>
+          <div class="fetch-command">
+            <span>miguel@camo</span><span class="prompt-path">:~</span>$
+            <span class="command-name">neofetch</span
+            ><span class="command-flag"> --profile</span>
+          </div>
+          <div class="fetch-grid">
+            <figure class="fetch-portrait">
+              <pre
+                class="ascii-portrait"
+                id="ascii-portrait"
+                aria-hidden="true"
               >
-            </h1>
-            <p class="hero-role">
-              Full stack developer.<br /><span
-                >Software architecture enthusiast.</span
+                              Mh
+                          H#GBB&amp;&amp;9H
+                      MB&amp;@@@&amp;9999BBB#Gh
+                   #&amp;&amp;@@@@@@@@@&amp;B9999BB&amp;#
+                GB&amp;@@@@@#GS##9@@@@@@&amp;9B@@2
+               &amp;@@@@@@Hr;,,:::;AG#9&amp;@@@@@9
+              B@@@@&amp;Mr;:;;;;:::,:;rA5H&amp;99&amp;9
+              @@@Ms;,:;ii;;ii;;;;;;;rs9@9&amp;@
+             B@&amp;G;;iiiii;;;;;iii;;irrr2@@@&amp;
+             &amp;&amp;&amp;2;i:,::,:::::i;;;;irssrA#@@9
+             &amp;@h;rAA5As;:::;r;:,;i;;rssrsG@@
+             @G:rA3555HB&amp;S53r:rXsr;;ir;sAS@&amp;
+             &amp;i;sX22Ars2555s,i3GGBB#SGhAA9@9
+            H9;iisM9S@@MhA5r.sG522irA3MhX9@
+           :3#iii;irrssssXAi:2H55G&amp;BSGh3XS&amp;
+            2hri;;::;;;;rXs;;25Ars5hS#Ass#
+           :.5Xii;;;;iirXr;:;s32srirrirrA9
+           :ihXrri;;;;:rXi. ,i22rrri;irsh#r
+           .sMXriiii;::AGG2XASMA;iiirrr2M2
+             2Asrii;:;;rAX23MGhr;iiissAM3X
+             A2XsrrrsXrii:,.:sAsirsrsX3M:
+             5A2Ars533hhMGhhM5255XXsA5h5:
+              XA2AXssAMM3hMHG9Gh5AXA52h
+               A2AsrsX2hHGHGM3XXss2322
+               Ah3Xr;;i;;isXsrssX2533
+               3hGS3s;;;::::,;sA3hHGs 2
+           . .5925MS#GHh3353hMHSSGM#;iH3::
+        :., .2MM3A253MGSSSSSSSGHh5HG:A2AXii   ,
+ .,::,:riiiA33&amp;535A5552255333352A3GX;3h:ss;,;r;;,:ii:.
+,:;.ir5;ir523HSA3h2A53hhh33522AX3MrsrhAAi;sr2;sisrrr;::,;i
+;X:ss5r;r:2XXHhA235XA22552AAAAX2G,sXX3rri2sXssssiA:Ais;sir
+A,iX5s .XsXA5G5XsX5AssXXsssssrAMA AA;XA:r2AAX2:X:A;rs;A:rr
+,ir; ,shsAX22HsrrrAXsrsrrrrriXXX;iAA:sr5;sX2X3:X;Arrr;Xsi:
+iir;s2GMrAAA3hrrrsssrrrrriiir2 r 5sA:X,3,As3r3sAissrs5;ii,
+irsMM22MA;XX33Xrrrrrrrriiirri3G2,A;s:A:5rXXXXXMrrrXrX2isi;
+rirXAr2s23A2X5Asrrrrrriirrr5AMG5SAX;;X;5XrAiAsS;siX2XiAAss</pre
               >
-            </p>
-            <p class="hero-intro">
-              Me gusta entender cómo funcionan las cosas.<br />Y construirlas
-              para que alguien más<br class="desktop-break" />
-              también pueda entenderlas.
-            </p>
+              <figcaption>
+                <span aria-hidden="true">└─</span> Miguel Camo
+                <span class="portrait-caption-note">/ retrato en ASCII</span>
+              </figcaption>
+            </figure>
+            <div class="fetch-profile">
+              <h1 id="hero-title">
+                <span>miguel</span>@camo<span
+                  class="fetch-heading-rule"
+                  aria-hidden="true"
+                ></span>
+              </h1>
+              <dl class="fetch-data">
+                <div class="fetch-row">
+                  <dt><span>Nombre</span></dt>
+                  <dd>Miguel Ángel Camo Rincón</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Perfil</span></dt>
+                  <dd>Ingeniero en software</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Enfoque</span></dt>
+                  <dd>Full stack · Arquitectura de software</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Formación</span></dt>
+                  <dd>Universidad Veracruzana</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Ubicación</span></dt>
+                  <dd>Xalapa, Veracruz, México</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Ahora</span></dt>
+                  <dd>
+                    <a href="#experiencia">Equipo ARIES · Frontend &amp; QA</a>
+                  </dd>
+                </div>
+              </dl>
+              <h2 class="fetch-group-title">
+                Tecnologías<span aria-hidden="true"></span>
+              </h2>
+              <dl class="fetch-data">
+                <div class="fetch-row">
+                  <dt><span>Frontend</span></dt>
+                  <dd>Angular, React, Vue.js, TypeScript</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Backend</span></dt>
+                  <dd>C# / .NET, Java / Spring Boot, Node.js</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Web</span></dt>
+                  <dd>PHP / Laravel, HTML, CSS</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Datos</span></dt>
+                  <dd>SQL Server, MySQL, PostgreSQL</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Diseño</span></dt>
+                  <dd>SOLID, patrones de diseño, UML</dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>Calidad</span></dt>
+                  <dd>Cypress, Git, Docker, Podman</dd>
+                </div>
+              </dl>
+              <h2 class="fetch-group-title">
+                Contacto<span aria-hidden="true"></span>
+              </h2>
+              <dl class="fetch-data">
+                <div class="fetch-row">
+                  <dt><span>Email</span></dt>
+                  <dd>
+                    <a href="mailto:miguel_camo@outlook.com"
+                      >miguel_camo@outlook.com</a
+                    >
+                  </dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>GitHub</span></dt>
+                  <dd>
+                    <a
+                      href="https://github.com/MigCamo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >@MigCamo ↗</a
+                    >
+                  </dd>
+                </div>
+                <div class="fetch-row">
+                  <dt><span>LinkedIn</span></dt>
+                  <dd>
+                    <a
+                      href="https://www.linkedin.com/in/miguel-%C3%A1ngel-camo-rinc%C3%B3n-722b492a1/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Miguel Camo ↗</a
+                    >
+                  </dd>
+                </div>
+              </dl>
+              <div class="fetch-footnote">
+                <span>Proyectos: <b>05</b></span
+                ><span>Formación: <b>9.0/10</b></span
+                ><a href="#proyectos">explorar trabajo ↓</a>
+              </div>
+            </div>
+          </div>
+          <div class="fetch-bottom">
+            <span># de la interfaz a la arquitectura.</span>
             <div class="hero-buttons">
               <a class="button button-primary" href="#proyectos"
-                ><span aria-hidden="true">./</span>ver_proyectos
-                <span aria-hidden="true">↗</span></a
+                >[ ver proyectos ]</a
               ><a
                 class="button button-quiet"
                 href="./assets/documents/miguel-camo-cv.pdf"
                 download
-                ><span aria-hidden="true">↓</span> curriculum.pdf</a
+                >[ descargar CV ]</a
               >
             </div>
-            <p class="hero-comment">
-              // del primer componente a la decisión de arquitectura.
-            </p>
-          </div>
-          <aside class="profile-pane" aria-label="Perfil profesional">
-            <div class="pane-title">
-              <span>~/profile.conf</span><span>r--</span>
-            </div>
-            <div class="profile-output">
-              <pre class="ascii-monogram" aria-hidden="true">
-███╗   ███╗  ██████╗
-████╗ ████║ ██╔════╝
-██╔████╔██║ ██║
-██║╚██╔╝██║ ██║
-██║ ╚═╝ ██║ ╚██████╗
-╚═╝     ╚═╝  ╚═════╝</pre>
-              <div class="profile-identity">
-                miguel<span>@</span>camo<span class="profile-rule"
-                  >─────────────────────</span
-                >
-              </div>
-              <dl class="profile-facts">
-                <div>
-                  <dt>rol</dt>
-                  <dd>Ingeniero en software</dd>
-                </div>
-                <div>
-                  <dt>enfoque</dt>
-                  <dd>Frontend + backend</dd>
-                </div>
-                <div>
-                  <dt>criterio</dt>
-                  <dd>Arquitectura & calidad</dd>
-                </div>
-                <div>
-                  <dt>formación</dt>
-                  <dd>Universidad Veracruzana</dd>
-                </div>
-                <div>
-                  <dt>ahora</dt>
-                  <dd>Equipo ARIES</dd>
-                </div>
-                <div>
-                  <dt>ubicación</dt>
-                  <dd>Xalapa, Veracruz, MX</dd>
-                </div>
-              </dl>
-              <div class="terminal-palette" aria-hidden="true">
-                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-              </div>
-              <p class="profile-comment">
-                # aprender → diseñar → construir → probar
-              </p>
-            </div>
-          </aside>
-        </div>
-        <div class="terminal" aria-label="Terminal interactiva del portafolio">
-          <div class="terminal-top">
-            <span
-              ><span class="terminal-dot" aria-hidden="true"></span>
-              portfolio-shell</span
-            ><span>bash · navegador</span
-            ><button
-              type="button"
-              data-command="help"
-              aria-label="Mostrar comandos disponibles"
-            >
-              [ help ]
-            </button>
           </div>
           <div
-            class="terminal-output"
-            id="terminal-output"
-            role="log"
-            aria-live="polite"
-            aria-label="Salida de la terminal"
-          ></div>
-          <form id="terminal-form" class="terminal-form" autocomplete="off">
-            <label for="terminal-input" class="sr-only"
-              >Comando del portafolio</label
-            ><span class="input-prompt" aria-hidden="true"
-              >mcamo<span>@portfolio</span>:~$</span
-            ><input
-              id="terminal-input"
-              name="command"
-              type="text"
-              maxlength="120"
-              spellcheck="false"
-              autocapitalize="none"
-              autocomplete="off"
-              placeholder="help, ls, cd proyectos..."
-              aria-describedby="terminal-hint"
-            /><button type="submit" aria-label="Ejecutar comando">↵</button>
-          </form>
-          <p class="terminal-hint" id="terminal-hint">
-            Una terminal para explorar este portafolio.
-            <span
-              ><kbd>/</kbd> enfocar <i>·</i> <kbd>Tab</kbd> completar <i>·</i>
-              <kbd>↑</kbd> historial</span
-            >
-          </p>
+            class="terminal"
+            aria-label="Terminal interactiva del portafolio"
+          >
+            <div
+              class="terminal-output"
+              id="terminal-output"
+              role="log"
+              aria-live="polite"
+              aria-label="Salida de la terminal"
+            ></div>
+            <form id="terminal-form" class="terminal-form" autocomplete="off">
+              <label for="terminal-input" class="sr-only"
+                >Comando del portafolio</label
+              ><span class="input-prompt" aria-hidden="true"
+                >miguel<span>@camo</span>:~$</span
+              ><input
+                id="terminal-input"
+                name="command"
+                type="text"
+                maxlength="120"
+                spellcheck="false"
+                autocapitalize="none"
+                autocomplete="off"
+                placeholder="help, ls, cd proyectos..."
+                aria-describedby="terminal-hint"
+              /><button type="submit" aria-label="Ejecutar comando">↵</button>
+            </form>
+            <div class="terminal-hint" id="terminal-hint">
+              <span>Explora el portafolio desde aquí.</span
+              ><span
+                ><button
+                  type="button"
+                  data-command="help"
+                  aria-label="Mostrar comandos disponibles"
+                >
+                  help
+                </button>
+                <i>·</i> <kbd>Tab</kbd> completar <i>·</i>
+                <kbd>↑</kbd> historial</span
+              >
+            </div>
+          </div>
         </div>
-        <div class="hero-bottom">
-          <span
-            ><span class="status-dot"></span> código claro. decisiones
-            conscientes.</span
-          ><a href="#sobre-mi">↓ leer README</a>
-        </div>
+        <p class="fetch-scroll-hint">
+          <a href="#sobre-mi">↓ seguir leyendo ~/sobre_mí.md</a
+          ><span>código claro · decisiones conscientes</span>
+        </p>
       </section>
       <section
         class="section section-about"
@@ -989,12 +1025,5 @@
       <span class="mono">XALAPA, VERACRUZ · MX</span
       ><a href="#inicio">Volver arriba ↑</a>
     </footer>
-    <div class="editor-status" aria-label="Estado del portafolio">
-      <span class="editor-mode">NORMAL</span
-      ><span class="editor-branch">⑂ portfolio</span
-      ><span id="current-file">~/inicio</span><span class="status-spacer"></span
-      ><span>UTF-8</span><span>LF</span
-      ><a href="#inicio" aria-label="Ir al inicio">↑ top</a>
-    </div>
   </body>
 </html>
